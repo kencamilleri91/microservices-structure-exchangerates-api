@@ -19,11 +19,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.BLL", "Micros
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.ExchangeRates.API", "Microservices.ExchangeRates.API\Microservices.ExchangeRates.API.csproj", "{395B6F59-D2B0-450D-90F5-FFD122EFDEDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservices.ExchangeRates.Test", "Microservices.ExchangeRates.Test\Microservices.ExchangeRates.Test.csproj", "{9664FCF5-64D7-4503-9EE1-44E41594CE11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.ExchangeRates.Test", "Microservices.ExchangeRates.Test\Microservices.ExchangeRates.Test.csproj", "{9664FCF5-64D7-4503-9EE1-44E41594CE11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservices.Auth.Test", "Microservices.Auth.Test\Microservices.Auth.Test.csproj", "{3A8EA10A-8DC9-41D4-8DB8-3929DB99500C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.Auth.Test", "Microservices.Auth.Test\Microservices.Auth.Test.csproj", "{3A8EA10A-8DC9-41D4-8DB8-3929DB99500C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservices.TestMocks", "Microservices.TestMocks\Microservices.TestMocks.csproj", "{48BC278F-28D5-43CA-A5E7-1107E0C20E19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.TestMocks", "Microservices.TestMocks\Microservices.TestMocks.csproj", "{48BC278F-28D5-43CA-A5E7-1107E0C20E19}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.BLL.Test", "Microservices.BLL.Test\Microservices.BLL.Test.csproj", "{6AD0B4E9-6741-432A-8C95-E86408A0E30B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{48BC278F-28D5-43CA-A5E7-1107E0C20E19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48BC278F-28D5-43CA-A5E7-1107E0C20E19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48BC278F-28D5-43CA-A5E7-1107E0C20E19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AD0B4E9-6741-432A-8C95-E86408A0E30B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AD0B4E9-6741-432A-8C95-E86408A0E30B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AD0B4E9-6741-432A-8C95-E86408A0E30B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AD0B4E9-6741-432A-8C95-E86408A0E30B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +82,7 @@ Global
 		{9664FCF5-64D7-4503-9EE1-44E41594CE11} = {0E2297B2-ECDD-462C-A247-DC224556AC21}
 		{3A8EA10A-8DC9-41D4-8DB8-3929DB99500C} = {4ABF8E05-0ADC-4499-9AC7-6C4FD5FBE8AF}
 		{48BC278F-28D5-43CA-A5E7-1107E0C20E19} = {177C18C2-D1EB-4A31-B272-4E3C11293B7B}
+		{6AD0B4E9-6741-432A-8C95-E86408A0E30B} = {177C18C2-D1EB-4A31-B272-4E3C11293B7B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9F7E7C2A-BCDB-4D03-A841-4A238BC17443}

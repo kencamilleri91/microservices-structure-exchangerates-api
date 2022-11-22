@@ -1,4 +1,4 @@
-﻿namespace Microservices.BLL.DataManager
+﻿namespace Microservices.BLL.Models
 {
 	public class CreateAPIUserModel
 	{

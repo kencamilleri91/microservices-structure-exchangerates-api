@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microservices.Common.Models
+namespace Microservices.BLL.Models
 {
 	public class BaseEntity
 	{

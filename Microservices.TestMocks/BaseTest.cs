@@ -4,7 +4,6 @@ using NUnit.Framework;
 
 namespace Microservices.TestMocks
 {
-	[TestFixture]
 	public abstract class BaseTest<TestedClass, TestSuite>
 	{
 		protected DefaultMocks Mocks;
@@ -16,7 +15,7 @@ namespace Microservices.TestMocks
 			TestObject = InitializeTestObject(Mocks);
 		}
 
-		public abstract TestedClass InitializeTestObject(DefaultMocks mocks);
+		protected abstract TestedClass InitializeTestObject(DefaultMocks mocks);
 
 		[Test]
 		public void AllPublicMethodsHaveTest()

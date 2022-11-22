@@ -11,6 +11,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
 using Microservices.BLL.DataManager.Interfaces;
 using Microservices.BLL.DataManager;
+using Microservices.ExchangeRates.API;
+using Microservices.BLL.Models.Configuration;
 
 namespace Microservices.Auth.API
 {
@@ -25,6 +27,7 @@ namespace Microservices.Auth.API
 
 		public void ConfigureServices(IServiceCollection services)
 		{
+			var appConfig = Configuration.Get<AuthConfig>();
 			services.AddDbContext<AuthDBContext>(opt =>
 				opt.UseSqlServer(Configuration.GetConnectionString("AuthDBContext"))
 			);
@@ -59,9 +62,7 @@ namespace Microservices.Auth.API
 				});
 			});
 
-			services.AddScoped<IAuthManager, AuthManager>();
-			services.AddSingleton<IConfiguration>((x) => Configuration);
-
+			services.AddMicroserviceDependencies();
 			services.AddMvcCore().AddApiExplorer();
 			services.AddSwaggerGen();
 		}

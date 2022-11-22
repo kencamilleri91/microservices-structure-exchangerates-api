@@ -1,5 +1,4 @@
 using System.Text;
-using Microservices.BLL;
 using Microservices.ExchangeRates.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -23,9 +22,10 @@ namespace Microservices.ExchangeRates.API
 
 		public void ConfigureServices(IServiceCollection services)
 		{
+			var appConfig = Configuration.Get<ExchangeRatesConfig>();
 			services.AddDbContext<ExchangeRatesDBContext>(opt =>
 			{
-				opt.UseSqlServer(Configuration.GetConnectionString("ExchangeRatesDBContext"));
+				opt.UseSqlServer(appConfig.ConnectionStrings["ExchangeRatesDBContext"]);
 			});
 			services.AddAuthentication(opt =>
 			{
@@ -37,11 +37,11 @@ namespace Microservices.ExchangeRates.API
 				opt.SaveToken = true;
 				opt.TokenValidationParameters = new TokenValidationParameters
 				{
-					ValidAudience = this.Configuration["JWT:ValidAudience"],
-					ValidIssuer = this.Configuration["JWT:ValidIssuer"],
+					ValidAudience = appConfig.JWT.ValidAudience,
+					ValidIssuer = appConfig.JWT.ValidIssuer,
 					ValidateIssuer = true,
 					ValidateAudience = true,
-					IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(this.Configuration["JWT:Secret"]))
+					IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(appConfig.JWT.Secret))
 				};
 			});
 			services.AddAuthorization(opt =>
@@ -52,7 +52,7 @@ namespace Microservices.ExchangeRates.API
 					policy.RequireAuthenticatedUser();
 				});
 			});
-			services.AddSingleton<IConfiguration>((x) => Configuration);
+			services.AddMicroserviceDependencies();
 			services.AddMvcCore().AddApiExplorer();
 			services.AddSwaggerGen();
 		}

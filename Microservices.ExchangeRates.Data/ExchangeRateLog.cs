@@ -1,4 +1,4 @@
-﻿using Microservices.Common.Models;
+﻿using Microservices.BLL.Models;
 
 namespace Microservices.ExchangeRates.Data
 {

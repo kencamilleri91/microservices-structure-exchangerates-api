@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Microservices.Auth.Data;
-using Microservices.BLL.DataManager;
 using Microservices.BLL.DataManager.Interfaces;
 using Microservices.BLL.Models;
 using Microsoft.AspNetCore.Authorization;

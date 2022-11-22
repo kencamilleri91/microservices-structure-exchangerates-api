@@ -1,16 +1,18 @@
-using System.Linq;
+using Microservices.BLL.Models;
 using Microservices.ExchangeRates.API.Controllers;
 using Microservices.TestMocks;
 using NUnit.Framework;
 
 namespace Microservices.ExchangeRates.Test.Controllers
 {
+	[TestFixture]
 	public class ExchangeRatesControllerTest : BaseTest<ExchangeRatesController, ExchangeRatesControllerTest>
 	{
-		public override ExchangeRatesController InitializeTestObject(DefaultMocks mocks)
+		protected override ExchangeRatesController InitializeTestObject(DefaultMocks mocks)
 			=> new ExchangeRatesController(
 				Mocks.GetLogger<ExchangeRatesController>(),
-				Mocks.DatabaseExchangeRates
+				Mocks.DatabaseExchangeRates,
+				Mocks.MockExchangeRateManager.Object
 			);
 
 		[SetUp]
@@ -50,5 +52,21 @@ namespace Microservices.ExchangeRates.Test.Controllers
 			Assert.That(resultData, Is.EqualTo(2));
 		}
 
+		[Test]
+		public void Convert_POST()
+		{
+			// Arrange & Setup
+			var model = new ConvertRequestModel
+			{
+				Amount = 1,
+				FromCurrency = "EUR",
+				ToCurrency = "USD",
+			};
+			var expectedResultData = Mocks.DefaultConvertResponseModel;
+			// Act & Assert
+			OperationResult<ConvertResponseModel> resultData = TestObject.Convert(model).Result;
+			Mocks.AssertOperationOkAndNoDifferences(expectedResultData, resultData);
+			Mocks.MockExchangeRateManager.Verify(x => x.ConvertAsync(model.Amount, model.FromCurrency, model.ToCurrency));
+		}
 	}
 }

@@ -70,11 +70,38 @@ namespace Microservices.BLL {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The currency &apos;{0}&apos; is invalid as it needs to be a three letter code..
+        /// </summary>
+        public static string ERROR_CURRENCY_INVALID {
+            get {
+                return ResourceManager.GetString("ERROR_CURRENCY_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to request exchange rates due to error: {0}.
+        /// </summary>
+        public static string ERROR_EXCHANGE_RATE_API_REQUEST {
+            get {
+                return ResourceManager.GetString("ERROR_EXCHANGE_RATE_API_REQUEST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username or password is incorrect..
         /// </summary>
         public static string ERROR_INVALID_CREDENTIALS {
             get {
                 return ResourceManager.GetString("ERROR_INVALID_CREDENTIALS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The input provided was invalid..
+        /// </summary>
+        public static string ERROR_MODEL_INVALID {
+            get {
+                return ResourceManager.GetString("ERROR_MODEL_INVALID", resourceCulture);
             }
         }
         
